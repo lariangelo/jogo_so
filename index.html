@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mimi.exe</title>
+    <title>Jogo da Mimi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
+    <main class="container">
         <h1>Conheça a Mimi </h1>
         <img src="imagens/gato.png" alt="Mimi curioso" class="miau-img">
         <section id="texto-doido">
             <span id="oi-mimi">Oi, eu sou a Mimi!</span>
-            <p class="miau-txt">
-                Uma gata curiosa que sempre quis saber como o computador consegue fazer tanta coisa, abrir programas, guardar arquivos, rodar jogos, e até me deixar ver vídeos de outros gatos na internet!
-                Ontem a noite eu estava cochilando em cima do teclado da minha humana e acabei apertando umas teclas... <b>e puff!</b> de repente acordei dentro do computador!<br><br>
-                Agora eu preciso explorar esse mundo digital pra entender como tudo aqui funciona e voltar pra minha humana!
-                Em cada fase, você vai me ajudar a descobrir os segredos escondidos do sistema.<br>
-                <b>Vamos juntos nessa missão?</b><br><br>
-                <i>(Obs: SO = Sistema Operacional e E/S = Entrada e Saída)</i>
-            </p>
+            <div class="miau-txt">
+                <p>Uma gata curiosa que sempre quis saber como o computador consegue fazer tanta coisa, abrir programas,
+                    guardar arquivos, rodar jogos, e até me deixar ver vídeos de outros gatos na internet!</p>
+                <p>Ontem a noite eu estava cochilando em cima do teclado da minha humana e acabei apertando umas
+                    teclas... <b>e puff!</b> de repente acordei dentro do computador!</p>
+                <p>Agora eu preciso explorar esse mundo digital pra entender como tudo aqui funciona e voltar pra minha
+                    humana! Em cada fase, você vai me ajudar a descobrir os segredos escondidos do sistema.</p>
+                <p><b>Vamos juntos nessa missão?</b></p>
+                <p><i>(Obs: SO = Sistema Operacional e E/S = Entrada e Saída)</i></p>
+            </div>
         </section>
         <button id="startBtn">Começar a Jornada</button>
-    </div>
+    </main>
 
     <script>
         const startBtn = document.getElementById("startBtn");
 
-        startBtn.addEventListener("click", () => { 
-        document.body.style.transition = "opacity 0.8s ease";
-        document.body.style.opacity = "0"; // dá o fade-out
+        startBtn.addEventListener("click", () => {
+            document.body.style.transition = "opacity 0.8s ease";
+            document.body.style.opacity = "0"; // dá o fade-out
 
-        setTimeout(() => {
-            window.location.href = "jogo.html";
-        }, 800); // espera o fade acabar antes de mudar de página
+            setTimeout(() => {
+                window.location.href = "jogo.html";
+            }, 800); // espera o fade acabar antes de mudar de página
         });
     </script>
 </body>
+
 </html>

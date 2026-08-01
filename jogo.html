@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mimi.exe</title>
+    <title>Jogo da Mimi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-    body {
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-  </style>
+        body {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
+    <main class="container">
         <h2>Ajude a Mimi</h2>
-        <div id="game">
+        <section id="game">
             <div id="question-container"></div>
             <button id="next-btn" class="hidden">Próxima Fase</button>
-        </div>
+        </section>
 
-        <div id="cpu-container">
-            <br>
+        <section id="cpu-container">
             <h2 class="h2">whiskas</h2>
             <div id="pieces"></div>
-        </div>
+        </section>
 
-        <div id="end-screen" class="hidden">
+        <section id="end-screen" class="hidden">
             <h2>Parabéns!</h2>
             <p> Você ajudou a Mimi a reunir todos os Whiskas Místicos! </p>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <img src="imagens/miau.png" alt="Miau animado" id="miauMascote" class="hidden">
     <div id="miauMensagem" class="hidden"></div>
@@ -39,4 +43,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

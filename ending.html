@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mimi.exe</title>
+    <title>Jogo da Mimi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
+    <main class="container">
         <h1>Obrigada por me ajudar!</h1>
         <img src="imagens/miau2.png" alt="Mimi" class="Mimidona">
-        <p class="miau-txt">
-            Com todos os whiskas reunidos, um brilho suave tomou conta do laboratório.<br>
-            Mimi sentiu seu pelo arrepiar e num piscar de olhos, tudo ao redor começou a se dissolver em luz.<br><br>
-            Quando abriu os olhos, ela estava de volta na casa quentinha, com sua humana querida.<br>
-            <br>
-            <i>Mimi voltou pra casa... mas agora ela sabe um pouco mais sobre Sistemas Operacionais.</i><br>
-        </p>
+        <div class="miau-txt">
+            <p>Com todos os whiskas reunidos, um brilho suave tomou conta do laboratório.</p>
+            <p>Mimi sentiu seu pelo arrepiar e num piscar de olhos, tudo ao redor começou a se dissolver em luz.</p>
+            <p>Quando abriu os olhos, ela estava de volta na casa quentinha, com sua humana querida.</p>
+            <p><i>Mimi voltou pra casa... mas agora ela sabe um pouco mais sobre Sistemas Operacionais.</i></p>
+        </div>
         <button id="startBtn">Reiniciar</button>
-    </div>
+    </main>
 
     <script>
         const startBtn = document.getElementById("startBtn");
 
         startBtn.addEventListener("click", () => {
-        document.body.style.transition = "opacity 0.8s ease";
-        document.body.style.opacity = "0"; // dá o fade-out
+            document.body.style.transition = "opacity 0.8s ease";
+            document.body.style.opacity = "0"; // dá o fade-out
 
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 800); // espera o fade acabar antes de mudar de página
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 800); // espera o fade acabar antes de mudar de página
         });
     </script>
-    
+
 </body>

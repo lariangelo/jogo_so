@@ -12,7 +12,7 @@ const scenes = [
       <p>Mimi entra em uma sala cheia de gavetas e cofres brilhantes. Ela pega um dos discos e balança o rabinho animada.</p>
       <p><b>Mimi:</b> "Então é aqui que os dados ficam? Que lugar mais interessante!"</p>
     `
-  },              
+  },
   {
     title: "Fase 3 — BIOS",
     text: `
@@ -49,7 +49,7 @@ const questions = [
   [
     {
       question:
-      "O Sistema Operacional é o cérebro-chefe que mantém tudo funcionando. As suas duas funções principais são...",
+        "O Sistema Operacional é o cérebro-chefe que mantém tudo funcionando. As suas duas funções principais são...",
       options: [
         "Servir como máquina virtual e gerenciar recursos",
         "Realizar operações matemáticas e armazenar dados",
@@ -201,7 +201,7 @@ const questions = [
   [
     {
       question:
-      "O sistema de arquivos de um certo SO armazena as informações em arquivos; organiza cada arquivo de maneira que sejam compostos por um ou mais blocos; armazena o endereço do primeiro bloco do arquivo; armazena os blocos em sequência; encontra o endereço de cada bloco a partir do endereço do primeiro. Qual a estratégia de alocação utilizada?",
+        "O sistema de arquivos de um certo SO armazena as informações em arquivos; organiza cada arquivo de maneira que sejam compostos por um ou mais blocos; armazena o endereço do primeiro bloco do arquivo; armazena os blocos em sequência; encontra o endereço de cada bloco a partir do endereço do primeiro. Qual a estratégia de alocação utilizada?",
       options: [
         "Alocação Encadeada",
         "Alocação Contígua",
@@ -212,7 +212,7 @@ const questions = [
     },
     {
       question:
-      "O sistema de arquivos de um certo SO armazena as informações em arquivos; organiza cada arquivo de maneira que sejam compostos por um ou mais blocos; encontra o endereço de cada bloco a partir do endereço registrado em uma ou mais tabelas, que podem ser organizadas por níveis. Qual o método de armazenamento utilizado?",
+        "O sistema de arquivos de um certo SO armazena as informações em arquivos; organiza cada arquivo de maneira que sejam compostos por um ou mais blocos; encontra o endereço de cada bloco a partir do endereço registrado em uma ou mais tabelas, que podem ser organizadas por níveis. Qual o método de armazenamento utilizado?",
       options: [
         "Alocação Encadeada",
         "Alocação Contígua",
@@ -289,7 +289,7 @@ const questions = [
     },
     {
       question:
-      "O sistema de arquivos de um certo SO armazena as informações em arquivos; organiza cada arquivo de maneira que sejam compostos por um ou mais blocos; armazena o endereço de todos os blocos (o 1° armazena o do 2° e assim por diante); encontra o endereço de cada bloco a partir do endereço armazenado no bloco anterior. Qual a estratégia de alocação utilizada?",
+        "O sistema de arquivos de um certo SO armazena as informações em arquivos; organiza cada arquivo de maneira que sejam compostos por um ou mais blocos; armazena o endereço de todos os blocos (o 1° armazena o do 2° e assim por diante); encontra o endereço de cada bloco a partir do endereço armazenado no bloco anterior. Qual a estratégia de alocação utilizada?",
       options: [
         "Alocação Encadeada",
         "Alocação Contígua",
@@ -358,17 +358,17 @@ function mostrarCenario() {
 
   document.getElementById("start-phase-btn").addEventListener("click", showQuestion);
 }
- 
+
 function showQuestion() {
   const q = questions[currentPhase][currentQuestion];
   questionContainer.innerHTML = `
         <h1>${q.question}</h1>
         ${q.options
-          .map(
-            (opt, i) =>
-              `<div class="option" onclick="checkAnswer(${i})">${opt}</div>`
-          )
-          .join("")}
+      .map(
+        (opt, i) =>
+          `<div class="option" onclick="checkAnswer(${i})">${opt}</div>`
+      )
+      .join("")}
     `;
 }
 
@@ -483,7 +483,7 @@ function mostrarTelaFinal() {
 function trocarTela(novaTela) {
   container.classList.add("fade");
   setTimeout(() => {
-    novaTela(); 
+    novaTela();
     container.classList.remove("fade");
     container.classList.add("show");
   }, 500);
