@@ -337,13 +337,7 @@ const piecesContainer = document.getElementById("pieces");
 const endScreen = document.getElementById("end-screen");
 const restartBtn = document.getElementById("restart-btn");
 
-window.addEventListener("load", () => {
-  document.body.style.opacity = "0";
-  document.body.style.transition = "opacity 0.8s ease";
-  setTimeout(() => {
-    document.body.style.opacity = "1";
-  }, 50);
-});
+
 
 
 function mostrarCenario() {
@@ -476,18 +470,14 @@ function mostrarTelaFinal() {
 
   soltaconfete();
   setTimeout(() => {
-    window.location.href = "ending.html";
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+      window.location.href = "ending.html";
+    }, 800);
   }, 2000);
 }
 
-function trocarTela(novaTela) {
-  container.classList.add("fade");
-  setTimeout(() => {
-    novaTela();
-    container.classList.remove("fade");
-    container.classList.add("show");
-  }, 500);
-}
+
 
 function soltaconfete() {
   confetti({
@@ -500,4 +490,3 @@ function soltaconfete() {
 window.onload = () => {
   mostrarCenario();
 };
-showQuestion();
