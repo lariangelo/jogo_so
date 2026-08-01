@@ -353,3 +353,53 @@ button:active {
     padding: 10px 15px;
   }
 }
+
+/* ======= INTRODUÇÃO (CUTSCENE) ======= */
+#intro-sequence {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeIn 0.8s ease forwards;
+  background-color: var(--bg-primary);
+  z-index: 9999;
+}
+
+#intro-sequence.active {
+  display: flex;
+}
+
+#intro-img {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+#skip-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--text-color);
+  font-size: 15px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 0;
+  backdrop-filter: blur(5px);
+}
+
+#skip-btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
