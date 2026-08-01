@@ -15,6 +15,12 @@
     <main class="container">
         <h2>Ajude a Mimi</h2>
         <section id="game">
+            <div id="progress-wrapper" class="hidden">
+                <p id="phase-indicator">Fase 1 / 6</p>
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
             <div id="question-container"></div>
             <button id="next-btn" class="hidden">Próxima Fase</button>
         </section>
@@ -28,6 +34,8 @@
             <h2>Parabéns!</h2>
             <p> Você ajudou a Mimi a reunir todos os Whiskas Místicos! </p>
         </section>
+        
+        <button id="restart-game-btn">Reiniciar Jogo</button>
     </main>
 
     <img src="imagens/miau.png" alt="Miau animado" id="miauMascote" class="hidden">

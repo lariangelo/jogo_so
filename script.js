@@ -337,11 +337,28 @@ const piecesContainer = document.getElementById("pieces");
 const endScreen = document.getElementById("end-screen");
 const restartBtn = document.getElementById("restart-btn");
 
+const progressWrapper = document.getElementById("progress-wrapper");
+const phaseIndicator = document.getElementById("phase-indicator");
+const progressBar = document.getElementById("progress-bar");
+const restartGameBtn = document.getElementById("restart-game-btn");
+
+if (restartGameBtn) {
+  restartGameBtn.addEventListener("click", () => {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 800);
+  });
+}
+
 
 
 
 function mostrarCenario() {
   const scene = scenes[currentPhase];
+  
+  if (progressWrapper) progressWrapper.classList.add("hidden");
+
   questionContainer.innerHTML = `
     <div class="scene">
       <h2>${scene.title}</h2>
@@ -350,23 +367,34 @@ function mostrarCenario() {
     </div>
   `;
 
-  document.getElementById("start-phase-btn").addEventListener("click", showQuestion);
+  document.getElementById("start-phase-btn").addEventListener("click", () => {
+    if (progressWrapper) progressWrapper.classList.remove("hidden");
+    showQuestion();
+  });
 }
 
 function showQuestion() {
   const q = questions[currentPhase][currentQuestion];
+  
+  const totalPhases = questions.length;
+  if (phaseIndicator) phaseIndicator.innerText = `Fase ${currentPhase + 1} / ${totalPhases}`;
+  
+  const totalQuestions = questions[currentPhase].length;
+  const progressPercent = (currentQuestion / totalQuestions) * 100;
+  if (progressBar) progressBar.style.width = `${progressPercent}%`;
+
   questionContainer.innerHTML = `
         <h1>${q.question}</h1>
         ${q.options
       .map(
         (opt, i) =>
-          `<div class="option" onclick="checkAnswer(${i})">${opt}</div>`
+          `<div class="option" onclick="checkAnswer(${i}, this)">${opt}</div>`
       )
       .join("")}
     `;
 }
 
-function checkAnswer(selected) {
+function checkAnswer(selected, element) {
   const q = questions[currentPhase][currentQuestion];
   if (selected === q.answer) {
     soltaconfete();
@@ -376,16 +404,17 @@ function checkAnswer(selected) {
       questionContainer.innerHTML = "<p>Correto!</p>";
       setTimeout(showQuestion, 1000);
     } else {
+      if (progressBar) progressBar.style.width = '100%';
       unlockPiece();
     }
   } else {
-    questionContainer.innerHTML = `
-            <p>Errado! Tente novamente.</p>
-            <button id="retry-btn">Tentar novamente</button>
-        `;
-    document.getElementById("retry-btn").addEventListener("click", () => {
-      showQuestion();
-    });
+    if (element) {
+      element.classList.add("shake-error");
+      setTimeout(() => {
+        element.classList.remove("shake-error");
+      }, 400);
+    }
+    mostrarMiauMensagem("Hmm... Acho que essa não é a resposta certa!");
   }
 }
 
@@ -416,9 +445,12 @@ function mostrarMiauMensagem(texto) {
 }
 
 function unlockPiece() {
+  if (progressWrapper) progressWrapper.classList.add("hidden");
+
   const piece = pieces[currentPhase];
   const pieceDiv = document.createElement("div");
   pieceDiv.classList.add("piece");
+  pieceDiv.classList.add("bounce-item");
 
   // 👇 Só imagem, sem texto
   pieceDiv.innerHTML = `<img src="imagens/${piece.name}.png" alt="${piece.name}" class="piece-img">`;
